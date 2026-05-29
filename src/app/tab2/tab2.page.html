@@ -1,17 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>
-      Tab 2
+      Painel de Chamadas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" color="light">
+  <div class="painel-container" *ngIf="filaService.ultimasChamadas.length > 0; else semChamadas">
+    
+    <div class="senha-atual">
+      <h2>SENHA ATUAL</h2>
+      <div class="numero-destaque">{{ filaService.ultimasChamadas[0].numero }}</div>
+      <p class="tipo-destaque">Dirija-se ao Guichê</p>
+    </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <hr class="divisor">
+
+    <div class="historico">
+      <h3>ÚLTIMAS CHAMADAS</h3>
+      <ion-list>
+        <ion-item *ngFor="let senha of filaService.ultimasChamadas | slice:1">
+          <ion-icon name="time-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h2>{{ senha.numero }}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <ng-template #semChamadas>
+    <div class="painel-vazio">
+      <ion-icon name="tv-outline" color="medium"></ion-icon>
+      <h2>Aguardando chamadas...</h2>
+    </div>
+  </ng-template>
 </ion-content>

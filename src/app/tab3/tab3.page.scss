@@ -1,0 +1,85 @@
+.guiche-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-filas {
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  h3 { 
+    font-size: 18px; 
+    font-weight: bold; 
+    color: var(--ion-color-medium, #888); 
+    margin-bottom: 5px;
+  }
+  
+  .numero-fila { 
+    font-size: 32px; 
+    font-weight: 900; 
+    color: #eb445a; 
+    display: block;
+    min-height: 40px;
+    line-height: normal; 
+  }
+}
+
+.btn-chamar {
+  margin-top: 20px;
+  height: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* Blindando o botão de chamar contra o modo escuro global */
+.btn-chamar::part(native) {
+  background-color: #2dd36f !important;
+  color: #ffffff !important;
+}
+
+.senha-chamada {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+  background: var(--ion-color-step-100, #222);
+  border-radius: 12px;
+  border: 2px solid var(--ion-color-medium, #444);
+  min-height: 175px; /* Estipula o tamanho fixo que você sugeriu */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 { 
+    color: var(--ion-color-medium, #aaa); 
+    margin-bottom: 10px; 
+    font-weight: bold; 
+  }
+
+  .numero { 
+    font-size: 42px; 
+    font-weight: 900; 
+    color: #2dd36f; 
+    margin-bottom: 10px; 
+  }
+
+  p { 
+    color: var(--ion-color-medium, #888); 
+    margin: 0;
+  }
+
+  .vazio h3 {
+    color: var(--ion-color-medium, #666);
+    margin: 0;
+  }
+}
+
+/* Travando o fundo amarelo e forçando o título a ficar preto */
+ion-toolbar::part(background) {
+  background-color: #ffc409 !important; 
+}
+
+ion-toolbar, ion-title {
+  --color: #000000 !important; 
+  color: #000000 !important; 
+}

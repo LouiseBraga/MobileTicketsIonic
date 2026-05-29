@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+ion-button {
+  margin-top: 15px;
+  height: 80px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Opção Nuclear: Perfurando o Shadow DOM do Ionic para blindar as cores */
+ion-button[color="danger"]::part(native) { 
+  background-color: #eb445a !important; 
+  color: #ffffff !important; 
+}
+
+ion-button[color="secondary"]::part(native) { 
+  background-color: #3dc2ff !important; 
+  color: #ffffff !important; 
+}
+
+ion-button[color="tertiary"]::part(native) { 
+  background-color: #5260ff !important; 
+  color: #ffffff !important; 
+}
